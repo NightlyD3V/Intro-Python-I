@@ -22,3 +22,16 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+currentDate = str(datetime.date(datetime.utcnow())).split('-')
+print(currentDate)
+def printCal():
+  userInput =  input('please enter a year & month: ')
+  if(len(userInput) == 0):
+    print(calendar.month(int(currentDate[0]), int(currentDate[1])))
+  elif(len(userInput) == 1):
+    print(calendar.month(int(currentDate[0]), int(userInput)))
+  else:
+    print([int(x) for x in userInput.split()])
+    print(calendar.month(*[int(x) for x in userInput.split()]))
+printCal()
